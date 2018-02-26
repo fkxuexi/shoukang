@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--
+
+    &lt;!&ndash; 1、自定义Realm &ndash;&gt;
+    <bean id="AdminRealm" class="com.yigold.security.AdminRealm" />
+
+    <bean id="UserRealm" class="com.yigold.security.UserRealm" />
+
+
+
+
+
+
+
+    <bean name="shiroFilterChainDefinitions">
+        <constructor-arg>
+            <value>
+                /static/** = anon
+                /login = anon
+                /logout = anon
+                /register = anon
+                /** = auth
+            </value>
+        </constructor-arg>
+    </bean>
+-->
+
+
+</beans>
