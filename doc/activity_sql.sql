@@ -4,7 +4,8 @@ create table activity_rule(
 	points int(11) unsigned not null default '0'	comment "参与活动的积分的限制",
 	level int(11) unsigned not null default '0' comment "参与活动会员等级的限制",
 	consume_money decimal(10,2) not null default '0' comment '参与活动消费金额限制',
-	create_time datetime comment '创建时间',
+	and_or int not null default 0 comment '组合条件,1:point,2:level,3:consume_money,12 则为12两个条件组合,13 则为13两个条件组合,23 则为23两个条件组合,123 则三个条件并列组合,如果为1,2,3 则只使用一个条件',
+	create_time datetime not null comment '创建时间',
 	descri varchar(100)  not null comment "简短的说明"
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment "活动规则";
 
@@ -15,7 +16,9 @@ create table activity_prize(
 	reback_money decimal(10,2) comment '返现券',
 	reduce_money decimal(10,2) comment '减免',
 	give_goods_id int(11) comment '赠送商品的id',
-	give_score int(11) comment '赠送积分'
+	give_score int(11) comment '赠送积分',
+	prize_type int not null default 0 comment
+	'1:discount,2:reback_money,3:reduce_money,4:give_goods_id,5:give_score,'
 )engine=innodb default charset=utf8mb4 comment '活动奖品'; 
 
 drop table if exists activity_setting;
