@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="activity.top.fkxuexi.activity.dao.ActivitySettingDAO">
+
+	<select id="get" resultType="ActivitySetting">
+		select * from activity_setting where id = #{id}
+	</select>
+	
+	<select id="list" resultType="ActivitySetting">
+		select * from activity_setting
+		<trim prefix="where" prefixOverrides="AND |OR ">
+			<if test="startTime != null"> and start_time = #{startTime} </if>
+			<if test="endTime != null"> and end_time = #{endTime} </if>
+			<if test="userCanTakeTimes != null"> and user_can_take_times = #{userCanTakeTimes} </if>
+			<if test="activityTimes != null"> and activity_times = #{activityTimes} </if>
+			<if test="isForever != null"> and is_forever = #{isForever} </if>
+		</trim>
+	</select>
+
+	<update id="update" parameterType="ActivitySetting"> 
+		update activity_setting
+		<trim prefix="set" suffixOverrides=",">
+			<if test="startTime != null">  start_time = #{startTime} ,</if>
+			<if test="endTime != null">  end_time = #{endTime} ,</if>
+			<if test="userCanTakeTimes != null">  user_can_take_times = #{userCanTakeTimes} ,</if>
+			<if test="activityTimes != null">  activity_times = #{activityTimes} ,</if>
+			<if test="isForever != null">  is_forever = #{isForever} ,</if>
+		</trim>
+		where id = #{id}
+	</update>
+	
+	<insert id="insert" parameterType="ActivitySetting" useGeneratedKeys="true" keyProperty="id">
+		insert into activity_setting
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="startTime != null">  start_time ,</if>
+			<if test="endTime != null">  end_time ,</if>
+			<if test="userCanTakeTimes != null">  user_can_take_times ,</if>
+			<if test="activityTimes != null">  activity_times ,</if>
+			<if test="isForever != null">  is_forever ,</if>
+		</trim>
+		<trim prefix="value (" suffix=")" suffixOverrides=",">
+			<if test="startTime != null"> #{startTime} ,</if>
+			<if test="endTime != null"> #{endTime} ,</if>
+			<if test="userCanTakeTimes != null"> #{userCanTakeTimes} ,</if>
+			<if test="activityTimes != null"> #{activityTimes} ,</if>
+			<if test="isForever != null"> #{isForever} ,</if>
+		</trim>
+	</insert>
+	
+	<delete id="delete">
+		delete from activity_setting
+		<trim prefix="where" prefixOverrides="AND |OR ">
+			<if test="id != null"> and id = #{id} </if>
+		</trim>
+	</delete>
+	
+</mapper>
