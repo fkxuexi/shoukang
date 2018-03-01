@@ -1,9 +1,14 @@
-package top.fkxuexi.activity.dao;
+package top.fkxuexi.modules.activity.dao;
 
-import activity.top.fkxuexi.activity.entity.ActivityDetail;
+import common.entity.ActivityDetail;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import common.entity.ActivitySetting;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+
+@Repository
 public interface ActivityDetailDAO {
 
 	/**
@@ -43,5 +48,11 @@ public interface ActivityDetailDAO {
 	int delete(@Param("id") Integer id);
 
 
+    /**
+     *  活动 中是否包含了活动规则、奖品设置等其他的引用
+     * @param detail
+     * @return 返回引用的列表
+     */
+    List<ActivityDetail> isQuote(ActivityDetail detail);
 }
 

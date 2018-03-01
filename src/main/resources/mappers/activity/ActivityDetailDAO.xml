@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="activity.top.fkxuexi.activity.dao.ActivityDetailDAO">
+<mapper namespace="top.fkxuexi.modules.activity.dao.ActivityDetailDAO">
 
-	<sql id="updateSql">
-
-		<trim prefix="where" prefixOverrides="AND |OR ">
-			<if test="id != null"> and id = #{id} </if>
-		</trim>
-	</sql>
-	
-	
-	
 	<select id="get" resultType="ActivityDetail">
 		select * from activity_detail
-		<include refid="selectSql" />
+		where id = #{id}
 	</select>
 	
 	<select id="getByAttrList" resultType="ActivityDetail">
 		select * from activity_detail
 		<trim prefix="where" prefixOverrides="AND |OR ">
-			<if test="activityTypeId != null"> and activity_type_id = #{activityTypeId} </if>
 			<if test="activityRuleId != null"> and activity_rule_id = #{activityRuleId} </if>
-			<if test="activityPrizeTypeId != null"> and activity_prize_type_id = #{activityPrizeTypeId} </if>
+			<if test="activityPrizeId != null"> and activity_prize_id = #{activityPrizeId} </if>
 			<if test="activitySettingId != null"> and activity_setting_id = #{activitySettingId} </if>
 			<if test="budget != null"> and budget = #{budget} </if>
 			<if test="usedBudget != null"> and used_budget = #{usedBudget} </if>
@@ -35,9 +25,8 @@
 	<update id="update" parameterType="ActivityDetail">
 		update activity_detail
 		<trim prefix="set" suffixOverrides=",">
-			<if test="activityTypeId != null">  activity_type_id = #{activityTypeId} ,</if>
 			<if test="activityRuleId != null">  activity_rule_id = #{activityRuleId} ,</if>
-			<if test="activityPrizeTypeId != null">  activity_prize_type_id = #{activityPrizeTypeId} ,</if>
+			<if test="activityPrizeId != null">  activity_prize_id = #{activityPrizeId} ,</if>
 			<if test="activitySettingId != null">  activity_setting_id = #{activitySettingId} ,</if>
 			<if test="budget != null">  budget = #{budget} ,</if>
 			<if test="usedBudget != null">  used_budget = #{usedBudget} ,</if>
@@ -52,9 +41,8 @@
 	<insert id="insert" parameterType="ActivityDetail" useGeneratedKeys="true" keyProperty="id">
 		insert into activity_detail
 		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="activityTypeId != null">  activity_type_id ,</if>
 			<if test="activityRuleId != null">  activity_rule_id ,</if>
-			<if test="activityPrizeTypeId != null">  activity_prize_type_id ,</if>
+			<if test="activityPrizeId != null">  activity_prize_id ,</if>
 			<if test="activitySettingId != null">  activity_setting_id ,</if>
 			<if test="budget != null">  budget ,</if>
 			<if test="usedBudget != null">  used_budget ,</if>
@@ -64,9 +52,8 @@
 			<if test="state != null">  state ,</if>
 		</trim>
 		<trim prefix="value (" suffix=")" suffixOverrides=",">
-			<if test="activityTypeId != null"> #{activityTypeId} ,</if>
 			<if test="activityRuleId != null"> #{activityRuleId} ,</if>
-			<if test="activityPrizeTypeId != null"> #{activityPrizeTypeId} ,</if>
+			<if test="activityPrizeId != null"> #{activityPrizeId} ,</if>
 			<if test="activitySettingId != null"> #{activitySettingId} ,</if>
 			<if test="budget != null"> #{budget} ,</if>
 			<if test="usedBudget != null"> #{usedBudget} ,</if>
@@ -81,4 +68,12 @@
 		delete from activity_detail where id = #{id}
 	</delete>
 
+	<select id="isQuote" resultType="ActivityDetail">
+		select * from activity_detail
+		<trim prefix="where" suffixOverrides="and|or">
+			<if test="activityRuleId != null">activity_rule_id = #{activityRuleId}</if>
+			<if test="activityPrizeId != null">activity_prize_id = #{activityPrizeId}</if>
+			<if test="activitySettingId != null">activity_setting_id = #{activitySettingId}</if>
+		</trim>
+	</select>
 </mapper>

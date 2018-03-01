@@ -1,9 +1,11 @@
-package top.fkxuexi.activity.dao;
+package top.fkxuexi.modules.activity.dao;
 
-import activity.top.fkxuexi.activity.entity.ActivityPrize;
+import common.entity.ActivityPrize;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ActivityPrizeDAO {
 
     /**

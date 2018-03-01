@@ -1,4 +1,4 @@
-package activity.top.fkxuexi.activity.entity;
+package common.entity;
 
 import java.math.BigDecimal;
 
@@ -9,9 +9,8 @@ import java.math.BigDecimal;
 public class ActivityDetail{
 	
 	private Integer id;  // 注释：活动细节 自增主键   
-	private Integer activityTypeId;  // 注释：活动类型id   
-	private Integer activityRuleId;  // 注释：活动规则id   
-	private Integer activityPrizeTypeId;  // 注释：活动奖品id   
+	private Integer activityRuleId;  // 注释：活动规则id
+	private Integer activityPrizeId;  // 注释：活动奖品id
 	private Integer activitySettingId;  // 注释：活动设置id   
 	private BigDecimal budget;  // 注释：此次活动的预算   
 	private BigDecimal usedBudget;  // 注释：此次活动已使用的预算   
@@ -28,14 +27,6 @@ public class ActivityDetail{
 		return id;
 	}
 	
-	public void setActivityTypeId(Integer activityTypeId){
-		this.activityTypeId = activityTypeId;
-	}
-	
-	public Integer getActivityTypeId(){
-		return activityTypeId;
-	}
-	
 	public void setActivityRuleId(Integer activityRuleId){
 		this.activityRuleId = activityRuleId;
 	}
@@ -44,12 +35,12 @@ public class ActivityDetail{
 		return activityRuleId;
 	}
 	
-	public void setActivityPrizeTypeId(Integer activityPrizeTypeId){
-		this.activityPrizeTypeId = activityPrizeTypeId;
+	public void setActivityPrizeId(Integer activityPrizeId){
+		this.activityPrizeId = activityPrizeId;
 	}
 	
 	public Integer getActivityPrizeTypeId(){
-		return activityPrizeTypeId;
+		return activityPrizeId;
 	}
 	
 	public void setActivitySettingId(Integer activitySettingId){
@@ -113,9 +104,8 @@ public class ActivityDetail{
 	public String toString(){
 		return "ActivityDetail["  	
 				+ "id = " + id
-				+ " , activityTypeId = " + activityTypeId
 				+ " , activityRuleId = " + activityRuleId
-				+ " , activityPrizeTypeId = " + activityPrizeTypeId
+				+ " , activityPrizeTypeId = " + activityPrizeId
 				+ " , activitySettingId = " + activitySettingId
 				+ " , budget = " + budget
 				+ " , usedBudget = " + usedBudget

@@ -19,7 +19,7 @@ public class MainController{
 	
 	public static void main(String[] args) {
 		
-		// 配置生成 service 、dao 、mapper、entity、controller 的一个或者多个
+		// 配置生成 service 、dao 、mapper、common.ewewe、controller 的一个或者多个
 		Convention[] generPackages = {
 				Convention.DAO,
 				Convention.XML_MAPPER,

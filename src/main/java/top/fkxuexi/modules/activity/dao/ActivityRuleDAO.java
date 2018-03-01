@@ -1,8 +1,8 @@
-package top.fkxuexi.activity.dao;
+package top.fkxuexi.modules.activity.dao;
 
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
-import activity.top.fkxuexi.activity.entity.ActivityRule;
+import common.entity.ActivityRule;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -13,6 +13,7 @@ import java.util.List;
  * @QQ群 570980002
  * @Description :
  */
+@Repository
 public interface ActivityRuleDAO {
     /** 通过id获取活动规则
      * @param id 活动规则的id

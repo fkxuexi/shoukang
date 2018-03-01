@@ -15,7 +15,7 @@ public enum Convention {
 	
 	SERVICE("service","Service",".java","ServiceTemplate.ftl",true),
 	
-	ENTITY("entity","",".java","EntityTemplate.ftl",true),
+	ENTITY("cowwwwon/ewewe","",".java","EntityTemplate.ftl",true),
 	
 	CONTROLLER("controller","Controller",".java","ControllerTemplate.ftl",true),
 	VUE("vue","",".vue","VueView.ftl",true);

@@ -35,9 +35,8 @@ create table activity_setting(
 drop table if exists activity_detail;
 create table activity_detail(
 	id int(11) unsigned primary key auto_increment comment '活动细节 自增主键',
-	activity_type_id int(11) not null comment '活动类型id',
 	activity_rule_id int(11) not null comment '活动规则id',
-	activity_prize_type_id int(11) not null comment '活动奖品id',
+	activity_prize_id int(11) not null comment '活动奖品id',
 	activity_setting_id int(11) not null comment '活动设置id',
 	budget decimal(10,2) not null comment '此次活动的预算',
 	used_budget decimal(10,2) not null comment '此次活动已使用的预算',

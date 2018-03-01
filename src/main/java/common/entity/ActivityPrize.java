@@ -1,4 +1,4 @@
-package activity.top.fkxuexi.activity.entity;
+package common.entity;
 
 import java.math.BigDecimal;
 
